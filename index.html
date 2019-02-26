@@ -1,0 +1,323 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+		<link rel="stylesheet" href="css/styles.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- INHERITANCE -->
+				<section class="stack units" id="inheritance">
+					<section>
+						<h2>CSS Inheritance</h2>
+						<img src="img/inheritance.png" alt="">
+					</section>
+					<section class="example">
+						<div class="row">
+							<div class="element">
+								<h2>Inherited:</h2>
+								<code>font-size, font-family, font-style, font-weight, color, text-align, text-transform, text-indent, line-height, letter-spacing, word-spacing, white-space, direction and etc.
+								</code>
+							</div>
+							<div class="element">
+								<h2>Not inherited:</h2>
+								<code>
+									background, border, padding, margin, width, height, position and etc
+								</code>
+								<br>
+								<br>
+								<h2>For other cases:</h2>
+								<code><mark>background: inherit;</mark></code>
+							</div>
+						</div>
+					</section>
+					<section class="custom"><pre><code><h1>Hello
+  <em>World!</em>
+</h1>
+<nav>
+  Navigation
+  <a href="link">link</a>
+</nav></code><code>//CSS
+body {
+  color: #333333;
+}
+
+h1 {
+  color: #ff0000;
+}</code></pre>
+						<div>
+							<img src="img/inheritance-example.png" alt="">
+						</div>
+					</section>
+				</section>
+				<!-- /INHERITANCE -->
+
+				<!-- SPECIFICITY -->
+				<section>
+					<section>
+						<h2>CSS Specificity</h2>
+						<img class="place" src="img/selectors-sp.jpg" alt="">
+					</section>
+					<section>
+						<h2>CSS Specificity</h2>
+						<table id="specificity-table" class="reveal">
+							<tr>
+								<th scope="col">Selector</th>
+								<th>Specificity</th>
+								<th>Specificity in base 10</th>
+							</tr>
+							<tbody class="monospace">
+							<tr>
+								<th scope="row">Style=""</th>
+								<td>1,0,0,0</td>
+								<td>1000</td>
+							</tr>
+							<tr>
+								<th scope="row">#wrapper #content {}</th>
+								<td>0,2,0,0</td>
+								<td>200</td>
+							</tr>
+							<tr>
+								<th scope="row">#content .list</th>
+								<td>0,1,1,0</td>
+								<td>110</td>
+							</tr>
+							<tr>
+								<th scope="row">div#content</th>
+								<td>0,1,0,1</td>
+								<td>101</td>
+							</tr>
+							<tr>
+								<th scope="row">p.comment .date</th>
+								<td>0,0,2,1</td>
+								<td>21</td>
+							</tr>
+							<tr>
+								<th scope="row">p.comment</th>
+								<td>0,0,1,1</td>
+								<td>11</td>
+							</tr>
+							<tr>
+								<th scope="row">ul li</th>
+								<td>0,0,0,2</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<th scope="row">div</th>
+								<td>0,0,0,1</td>
+								<td>1</td>
+							</tr>
+							</tbody>
+						</table>
+					</section>
+				</section>
+				<!-- /SPECIFICITY -->
+
+				<!-- CASCADING -->
+				<section class="stack units">
+					<section>
+						<h2>CSS Cascading</h2>
+						<img src="img/css-cascade.jpg" alt="">
+					</section>
+					<section>
+						<h2>CSS Cascading</h2>
+						<blockquote>The cascade takes a unordered list of declared values for a given property on a given element, sorts them by their declaration’s precedence, and outputs a single cascaded value.</blockquote>
+					</section>
+					<section>
+						<h2>CSS Cascading</h2>
+						<p>What selectors win out in cascade depends on such factors:</p>
+						<ul>
+							<li>Importance</li>
+							<!--TODO: change internal link here-->
+							<li><a href="#/1/0">Specificity</a></li>
+							<li>Source order</li>
+						</ul>
+					</section>
+					<section>
+						<h2>!important</h2>
+						<pre><code>
+<p class="paragraph">This is a paragraph.</p>
+<p class="paragraph">One selector to rule them all!</p>
+//CSS
+.paragraph {
+  color: #fff;
+  background-color: green;
+  padding: 10px;
+  border: 2px solid red;
+}
+
+p {
+  border-color: blue !important;
+}
+						</code></pre>
+						<img src="img/css-important.png" alt="">
+					</section>
+					<section>
+						<h2>Specificity</h2>
+						<pre><code>
+<p class="paragraph" id="title">This is a paragraph.</p>
+<p class="paragraph">One selector to rule them all!</p>
+//CSS
+#title {
+  border-color: purple;
+}
+
+.paragraph {
+  color: #fff;
+  background-color: green;
+  padding: 10px;
+  border: 2px solid red;
+}
+						</code></pre>
+						<img src="img/css-specificity.png" alt="">
+					</section>
+					<section>
+						<h2>Source order</h2>
+						<pre><code>
+<p class="paragraph">This is a paragraph.</p>
+<p class="paragraph">One selector to rule them all!</p>
+//CSS
+p {
+  color: #fff;
+  background-color: green;
+  padding: 10px;
+  border: 2px solid red;
+}
+
+p {
+  background-color: red;
+}
+						</code></pre>
+						<img src="img/css-source-order.png" alt="">
+					</section>
+				</section>
+				<!-- /CASCADING -->
+
+				<!-- UNITS -->
+				<section class="stack units">
+					<section>
+						<h2>CSS Units</h2>
+					</section>
+					<section>
+						<h4>Relative Lengths</h4>
+						<pre><code class="hljs css">em	/* relative to the font-size of the parent element */
+ex	/* relative to height of the "x" in lowercase */
+ch	/* relative to width of the "0" */
+rem	/* relative to the font-size of root element */
+
+vw	/* relative to 1% of the width of the viewport */
+vh	/* relative to 1% of the height of the viewport */
+vmin	/* relative to 1% of viewport's* smaller dimension */
+vmax	/* relative to 1% of viewport's* larger dimension */
+
+%	/* relative to the same property of the parent element */</code></pre>
+					</section>
+					<section>
+						<h4>Absolute Lengths</h4>
+						<pre><code class="hljs css">cm	/* centimeters */
+mm	/* millimeters */
+
+in	/* inches (1in = 96px = 2.54cm) */
+px	/* pixels (1px = 1/96th of 1in) */
+
+pt	/* points (1pt = 1/72 of 1in) */
+pc	/* picas (1pc = 12 pt) */</code></pre>
+					</section>
+					<section>
+						<h2>Notes</h2>
+						<ul>
+							<li class="next"><mark>em</mark> and <mark>px</mark> are most usable units for fonts, <mark>rem</mark> becoming popular.</li>
+							<li class="next"><mark>%</mark> is the most popular unit for layout due to responsive.</li>
+							<li class="next"><mark>vw</mark>/<mark>vh</mark> will become popular with new Grid Layout.</li>
+							<li class="next">Most of absolute units are used preferably for print page rules.</li>
+						</ul>
+						<br>
+						<p class="next">Learn more here:
+							<a target="blank" href="https://www.w3.org/TR/css-values-4/#lengths">W3C</a>
+						</p>
+					</section>
+					<section class="example">
+						<p class="vh-vmin"><span>10vh</span> and <span>10vmin</span></p>
+						<p class="px-in"><span>96px</span> and <span>1in</span></p>
+						<p class="em-rem-per"><span>2em</span> and <span>4.75rem</span> and <span>200%</span></p>
+						<p class="pc-pt"><span>4pc</span> and <span>48pt</span></p>
+					</section>
+				</section>
+				<!-- /UNITS -->
+
+				<!-- CALC -->
+				<section class="stack units">
+					<section>
+						<h2>Calc() Function</h2>
+						<p>Native CSS way to do simple math right in CSS. The most useful ability of calc() is <mark>its ability to mix units.</mark></p>
+						<br>
+						<pre><code>
+.thing {
+  width: 90%; /* fallback if needed */
+  width: calc(100% - 3em);
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Calc() Function</h2>
+						<br>
+						<pre><code>
+<div class="container">Some text...</div>
+//CSS
+.container {
+  width: calc(100% - 100px);
+  margin: 0 auto;
+  border: 1px solid black;
+  background-color: yellow;
+  padding: 5px;
+  text-align: center;
+}
+						</code></pre>
+						<img src="img/calc-example.png" alt="">
+					</section>
+					<section>
+						<h2>Calc() Function</h2>
+						<img src="img/calc-caniuse.png" alt="">
+					</section>
+				</section>
+				<!-- /CALC -->
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

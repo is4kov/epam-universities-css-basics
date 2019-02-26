@@ -1,0 +1,56 @@
+#inheritance .element {
+    margin: 30px;
+}
+
+#inheritance code {
+    font-size: 1.5rem;
+}
+
+#specificity-table {
+    font-size: 1.5rem;
+}
+
+#specificity-table tr td,
+#specificity-table tr th {
+    border-bottom: none;
+}
+
+#specificity-table tr:nth-child(even) {
+    background-color: #eeeeee;
+}
+
+.units .example .vh-vmin span:nth-child(1) {
+    font-size: 10vh;
+}
+
+.units .example .vh-vmin span:nth-child(2) {
+    font-size: 10vmin;
+}
+
+.units .example .px-in span:nth-child(1) {
+    font-size: 96px;
+}
+
+.units .example .px-in span:nth-child(2) {
+    font-size: 1in;
+}
+
+.units .example .em-rem-per span:nth-child(1) {
+    font-size: 2em;
+}
+
+.units .example .em-rem-per span:nth-child(2) {
+    font-size: 4.75rem;
+}
+
+.units .example .em-rem-per span:nth-child(4) {
+    font-size: 200%;
+}
+
+.units .example .pc-pt span:nth-child(1) {
+    font-size: 4pc;
+}
+
+.units .example .pc-pt span:nth-child(2) {
+    font-size: 48pt;
+}
