@@ -1,0 +1,345 @@
+$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
+$mainFontSize: 36px;
+
+.tooltip {
+
+  & {
+    position: relative;
+    outline: 2px solid red;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      bottom: 100%;
+      left: 10px;
+      margin-bottom: 3px;
+      border-top: 12px solid black;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+    }
+
+    &::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: 0;
+      bottom: 100%;
+      margin-bottom: 15px;
+      padding: 6px 16px;
+      border: 1px solid black;
+      white-space: nowrap;
+      background: #f8f8f8;
+      font-family: $mainFont;
+      font-size: .8em;
+      color: black;
+    }
+  }
+}
+
+.reveal {
+  font-size: $mainFontSize;
+
+  section {
+
+    .css-syntax {
+      
+      &.is-enlarged {
+        font-size: 1.3em;
+      }
+
+      &__block {
+        text-align: left;
+        font-family: monospace;
+      }
+
+      &__selector {
+        color: #000080;
+      }
+      
+      &__property {
+        color: #0039ff;
+      }
+      
+      &__value {
+        color: #008000;
+      }
+      
+      &__unit {
+        color: #0039ff;
+      }
+      
+      &__row {
+        margin-top: 6px;
+      }
+      
+      &__declaration {
+        margin-left: 100px;
+      }
+      
+      &__fragment {
+        
+        &--selector {
+          
+          &.current-fragment {
+            
+            ~  {
+              
+              .css-syntax__block {
+
+                .css-syntax__bracket,
+                .css-syntax__declaration {
+                  opacity: .3;
+                }
+                
+                .css-syntax__selector {
+                  @extend .tooltip;
+                }
+              }
+            }
+          }
+        }
+        
+        &--bracket {
+
+          &.current-fragment {
+
+            ~ {
+
+              .css-syntax__block {
+                
+                .css-syntax__selector,
+                .css-syntax__row:not(:first-child):not(:last-child) {
+                  opacity: .3;
+                }
+                
+                .css-syntax__bracket {
+                  outline: 2px solid red;
+                }
+                
+                .css-syntax__row:first-child .css-syntax__bracket {
+                  @extend .tooltip;
+                }
+              }
+            }
+          }
+        }
+        
+        &--property {
+
+          &.current-fragment {
+
+            ~ {
+
+              .css-syntax__block {
+
+                .css-syntax__selector,
+                .css-syntax__bracket,
+                .css-syntax__value,
+                .css-syntax__colon,
+                .css-syntax__semicolon {
+                  opacity: .3;
+                }
+                
+                .css-syntax__property {
+                  outline: 2px solid red;
+                }
+
+                :first-child + .css-syntax__declaration .css-syntax__property {
+                  @extend .tooltip;
+                }
+              }
+            }
+          }
+        }
+
+        &--value {
+
+          &.current-fragment {
+
+            ~ {
+
+              .css-syntax__block {
+                
+                .css-syntax__selector,
+                .css-syntax__bracket,
+                .css-syntax__property,
+                .css-syntax__colon,
+                .css-syntax__semicolon {
+                  opacity: .3;
+                }
+
+                .css-syntax__value {
+                  outline: 2px solid red;
+                }
+
+                :first-child + .css-syntax__declaration .css-syntax__value {
+                  @extend .tooltip;
+                }
+              }
+            }
+          }
+        }
+        
+        &--colon {
+
+          &.current-fragment {
+
+            ~ {
+
+              .css-syntax__block {
+
+                .css-syntax__selector,
+                .css-syntax__bracket,
+                .css-syntax__property,
+                .css-syntax__value,
+                .css-syntax__semicolon {
+                  opacity: .3;
+                }
+                
+                .css-syntax__colon {
+                  outline: 2px solid red;
+                }
+                
+                :first-child + .css-syntax__declaration .css-syntax__colon {
+                  @extend .tooltip;
+                }
+              }
+            }
+          }
+        }
+        
+        &--declaration {
+
+          &.current-fragment {
+
+            ~ {
+
+              .css-syntax__block {
+
+                .css-syntax__row:first-child,
+                .css-syntax__row:last-child {
+                  opacity: .3;
+                }
+                
+                .css-syntax__declaration {
+                  outline: 2px solid red;
+                }
+                
+                :first-child + .css-syntax__declaration {
+                  @extend .tooltip;
+                }
+              }
+            }
+          }
+        }
+
+        &--semicolon {
+
+          &.current-fragment {
+
+            ~ {
+
+              .css-syntax__block {
+
+                .css-syntax__selector,
+                .css-syntax__bracket,
+                .css-syntax__property,
+                .css-syntax__value,
+                .css-syntax__colon {
+                  opacity: .3;
+                }
+
+                .css-syntax__semicolon {
+                  outline: 2px solid red;
+                }
+                
+                :first-child + .css-syntax__declaration .css-syntax__semicolon {
+                  @extend .tooltip;
+                }
+              }
+            }
+          }
+        }
+        
+        &--block {
+
+          &.current-fragment {
+
+            ~ {
+
+              .css-syntax__block {
+                @extend .tooltip;
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    .trbl {
+      width: 100%;
+      height: 50vh;
+      border: 2px solid red;
+      
+      &__elem {
+        position: absolute;
+        font-size: 2em;
+        
+        &--t {
+          left: 50%;
+          top: 10px;
+          transform: translateX(-50%);
+        }
+        
+        &--r {
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        
+        &--b {
+          left: 50%;
+          bottom: 10px;
+          transform: translateX(-50%);
+        }
+        
+        &--l {
+          left: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      
+    }
+    
+    .css-example {
+      
+      &--pseudoelements {
+        
+        &::before {
+          content: 'before << ';
+          color: red;
+        }
+        
+        &::after {
+          content: ' >> after';
+          color: red;
+        }
+      }
+    }
+    
+    code.code {
+      padding: .05em 5px;
+      background: #f8f8f8;
+      font-size: .9em;
+      color: gray;
+    }
+  }
+
+  .slide-background-content {
+    background-size: contain;
+  }
+}
+
+

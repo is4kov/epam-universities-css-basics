@@ -1,0 +1,128 @@
+.tooltip, .reveal section .css-syntax__fragment--selector.current-fragment ~ .css-syntax__block .css-syntax__selector, .reveal section .css-syntax__fragment--bracket.current-fragment ~ .css-syntax__block .css-syntax__row:first-child .css-syntax__bracket, .reveal section .css-syntax__fragment--property.current-fragment ~ .css-syntax__block :first-child + .css-syntax__declaration .css-syntax__property, .reveal section .css-syntax__fragment--value.current-fragment ~ .css-syntax__block :first-child + .css-syntax__declaration .css-syntax__value, .reveal section .css-syntax__fragment--colon.current-fragment ~ .css-syntax__block :first-child + .css-syntax__declaration .css-syntax__colon, .reveal section .css-syntax__fragment--declaration.current-fragment ~ .css-syntax__block :first-child + .css-syntax__declaration, .reveal section .css-syntax__fragment--semicolon.current-fragment ~ .css-syntax__block :first-child + .css-syntax__declaration .css-syntax__semicolon, .reveal section .css-syntax__fragment--block.current-fragment ~ .css-syntax__block {
+  position: relative;
+  outline: 2px solid red; }
+  .tooltip::before, .reveal section .css-syntax__fragment--selector.current-fragment ~ .css-syntax__block .css-syntax__selector::before, .reveal section .css-syntax__fragment--bracket.current-fragment ~ .css-syntax__block .css-syntax__row:first-child .css-syntax__bracket::before, .reveal section .css-syntax__fragment--property.current-fragment ~ .css-syntax__block :first-child + .css-syntax__declaration .css-syntax__property::before, .reveal section .css-syntax__fragment--value.current-fragment ~ .css-syntax__block :first-child + .css-syntax__declaration .css-syntax__value::before, .reveal section .css-syntax__fragment--colon.current-fragment ~ .css-syntax__block :first-child + .css-syntax__declaration .css-syntax__colon::before, .reveal section .css-syntax__fragment--declaration.current-fragment ~ .css-syntax__block :first-child + .css-syntax__declaration::before, .reveal section .css-syntax__fragment--semicolon.current-fragment ~ .css-syntax__block :first-child + .css-syntax__declaration .css-syntax__semicolon::before, .reveal section .css-syntax__fragment--block.current-fragment ~ .css-syntax__block::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 100%;
+    left: 10px;
+    margin-bottom: 3px;
+    border-top: 12px solid black;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent; }
+  .tooltip::after, .reveal section .css-syntax__fragment--selector.current-fragment ~ .css-syntax__block .css-syntax__selector::after, .reveal section .css-syntax__fragment--bracket.current-fragment ~ .css-syntax__block .css-syntax__row:first-child .css-syntax__bracket::after, .reveal section .css-syntax__fragment--property.current-fragment ~ .css-syntax__block :first-child + .css-syntax__declaration .css-syntax__property::after, .reveal section .css-syntax__fragment--value.current-fragment ~ .css-syntax__block :first-child + .css-syntax__declaration .css-syntax__value::after, .reveal section .css-syntax__fragment--colon.current-fragment ~ .css-syntax__block :first-child + .css-syntax__declaration .css-syntax__colon::after, .reveal section .css-syntax__fragment--declaration.current-fragment ~ .css-syntax__block :first-child + .css-syntax__declaration::after, .reveal section .css-syntax__fragment--semicolon.current-fragment ~ .css-syntax__block :first-child + .css-syntax__declaration .css-syntax__semicolon::after, .reveal section .css-syntax__fragment--block.current-fragment ~ .css-syntax__block::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    margin-bottom: 15px;
+    padding: 6px 16px;
+    border: 1px solid black;
+    white-space: nowrap;
+    background: #f8f8f8;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: .8em;
+    color: black; }
+
+.reveal {
+  font-size: 36px; }
+  .reveal section .css-syntax.is-enlarged {
+    font-size: 1.3em; }
+  .reveal section .css-syntax__block {
+    text-align: left;
+    font-family: monospace; }
+  .reveal section .css-syntax__selector {
+    color: #000080; }
+  .reveal section .css-syntax__property {
+    color: #0039ff; }
+  .reveal section .css-syntax__value {
+    color: #008000; }
+  .reveal section .css-syntax__unit {
+    color: #0039ff; }
+  .reveal section .css-syntax__row {
+    margin-top: 6px; }
+  .reveal section .css-syntax__declaration {
+    margin-left: 100px; }
+  .reveal section .css-syntax__fragment--selector.current-fragment ~ .css-syntax__block .css-syntax__bracket,
+  .reveal section .css-syntax__fragment--selector.current-fragment ~ .css-syntax__block .css-syntax__declaration {
+    opacity: .3; }
+  .reveal section .css-syntax__fragment--bracket.current-fragment ~ .css-syntax__block .css-syntax__selector,
+  .reveal section .css-syntax__fragment--bracket.current-fragment ~ .css-syntax__block .css-syntax__row:not(:first-child):not(:last-child) {
+    opacity: .3; }
+  .reveal section .css-syntax__fragment--bracket.current-fragment ~ .css-syntax__block .css-syntax__bracket {
+    outline: 2px solid red; }
+  .reveal section .css-syntax__fragment--property.current-fragment ~ .css-syntax__block .css-syntax__selector,
+  .reveal section .css-syntax__fragment--property.current-fragment ~ .css-syntax__block .css-syntax__bracket,
+  .reveal section .css-syntax__fragment--property.current-fragment ~ .css-syntax__block .css-syntax__value,
+  .reveal section .css-syntax__fragment--property.current-fragment ~ .css-syntax__block .css-syntax__colon,
+  .reveal section .css-syntax__fragment--property.current-fragment ~ .css-syntax__block .css-syntax__semicolon {
+    opacity: .3; }
+  .reveal section .css-syntax__fragment--property.current-fragment ~ .css-syntax__block .css-syntax__property {
+    outline: 2px solid red; }
+  .reveal section .css-syntax__fragment--value.current-fragment ~ .css-syntax__block .css-syntax__selector,
+  .reveal section .css-syntax__fragment--value.current-fragment ~ .css-syntax__block .css-syntax__bracket,
+  .reveal section .css-syntax__fragment--value.current-fragment ~ .css-syntax__block .css-syntax__property,
+  .reveal section .css-syntax__fragment--value.current-fragment ~ .css-syntax__block .css-syntax__colon,
+  .reveal section .css-syntax__fragment--value.current-fragment ~ .css-syntax__block .css-syntax__semicolon {
+    opacity: .3; }
+  .reveal section .css-syntax__fragment--value.current-fragment ~ .css-syntax__block .css-syntax__value {
+    outline: 2px solid red; }
+  .reveal section .css-syntax__fragment--colon.current-fragment ~ .css-syntax__block .css-syntax__selector,
+  .reveal section .css-syntax__fragment--colon.current-fragment ~ .css-syntax__block .css-syntax__bracket,
+  .reveal section .css-syntax__fragment--colon.current-fragment ~ .css-syntax__block .css-syntax__property,
+  .reveal section .css-syntax__fragment--colon.current-fragment ~ .css-syntax__block .css-syntax__value,
+  .reveal section .css-syntax__fragment--colon.current-fragment ~ .css-syntax__block .css-syntax__semicolon {
+    opacity: .3; }
+  .reveal section .css-syntax__fragment--colon.current-fragment ~ .css-syntax__block .css-syntax__colon {
+    outline: 2px solid red; }
+  .reveal section .css-syntax__fragment--declaration.current-fragment ~ .css-syntax__block .css-syntax__row:first-child,
+  .reveal section .css-syntax__fragment--declaration.current-fragment ~ .css-syntax__block .css-syntax__row:last-child {
+    opacity: .3; }
+  .reveal section .css-syntax__fragment--declaration.current-fragment ~ .css-syntax__block .css-syntax__declaration {
+    outline: 2px solid red; }
+  .reveal section .css-syntax__fragment--semicolon.current-fragment ~ .css-syntax__block .css-syntax__selector,
+  .reveal section .css-syntax__fragment--semicolon.current-fragment ~ .css-syntax__block .css-syntax__bracket,
+  .reveal section .css-syntax__fragment--semicolon.current-fragment ~ .css-syntax__block .css-syntax__property,
+  .reveal section .css-syntax__fragment--semicolon.current-fragment ~ .css-syntax__block .css-syntax__value,
+  .reveal section .css-syntax__fragment--semicolon.current-fragment ~ .css-syntax__block .css-syntax__colon {
+    opacity: .3; }
+  .reveal section .css-syntax__fragment--semicolon.current-fragment ~ .css-syntax__block .css-syntax__semicolon {
+    outline: 2px solid red; }
+  .reveal section .trbl {
+    width: 100%;
+    height: 50vh;
+    border: 2px solid red; }
+    .reveal section .trbl__elem {
+      position: absolute;
+      font-size: 2em; }
+      .reveal section .trbl__elem--t {
+        left: 50%;
+        top: 10px;
+        transform: translateX(-50%); }
+      .reveal section .trbl__elem--r {
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%); }
+      .reveal section .trbl__elem--b {
+        left: 50%;
+        bottom: 10px;
+        transform: translateX(-50%); }
+      .reveal section .trbl__elem--l {
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%); }
+  .reveal section .css-example--pseudoelements::before {
+    content: 'before << ';
+    color: red; }
+  .reveal section .css-example--pseudoelements::after {
+    content: ' >> after';
+    color: red; }
+  .reveal section code.code {
+    padding: .05em 5px;
+    background: #f8f8f8;
+    font-size: .9em;
+    color: gray; }
+  .reveal .slide-background-content {
+    background-size: contain; }
